@@ -3,7 +3,7 @@ export interface Gif {
   url: string;
   title: string;
   rating: string;
-  import_date: string;
+  import_date: Date;
   user_title: string;
   user_icon: string;
   user_description: string;

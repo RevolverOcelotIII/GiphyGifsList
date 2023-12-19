@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 const GridGifImage = styled.td`
   img {
-    margin-block: -8px;
-    margin-inline: -12px;
+    margin-block: -10px;
+    margin-inline: -24px;
+    margin-right: -10px;
+    margin-bottom: -24px;
   }
 `;
 const GridUserTheme = styled.td`

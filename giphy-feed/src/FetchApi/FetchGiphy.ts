@@ -2,7 +2,7 @@ import { Gif } from "../models/Gif";
 
 async function getTrendingGifs() {
   const response = await fetch(
-    "https://api.giphy.com/v1/gifs/trending/?api_key=azgOZ6mjQdbuctMhtA0U252o181UV9s1"
+    "https://api.giphy.com/v1/gifs/trending/?api_key=azgOZ6mjQdbuctMhtA0U252o181UV9s1&limit=100"
   );
   const gif_list: Gif[] = [];
   for (const gif_json of (await response.json()).data) {
@@ -23,7 +23,11 @@ async function getTrendingGifs() {
         user_verified: gif_json.user.is_verified,
         image_small: gif_json.images.fixed_height.webp,
         image_large: gif_json.images.fixed_height_small.webp,
-        import_date: date_split[2] + "/" + date_split[1] + "/" + date_split[0],
+        import_date: new Date(
+          parseInt(date_split[0]),
+          parseInt(date_split[1]),
+          parseInt(date_split[2])
+        ),
       });
     } else {
       gif_list.push({
@@ -38,7 +42,11 @@ async function getTrendingGifs() {
         user_verified: false,
         image_small: gif_json.images.fixed_height.webp,
         image_large: gif_json.images.fixed_height_small.webp,
-        import_date: date_split[2] + "/" + date_split[1] + "/" + date_split[0],
+        import_date: new Date(
+          parseInt(date_split[0]),
+          parseInt(date_split[1]),
+          parseInt(date_split[2])
+        ),
       });
     }
   }
