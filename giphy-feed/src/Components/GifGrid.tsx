@@ -21,12 +21,7 @@ import { SvgIcon } from "@progress/kendo-react-common";
 import * as svgIcons from "@progress/kendo-svg-icons";
 
 import PropTypes from "prop-types";
-
-interface PageState {
-  skip: number;
-  take: number;
-}
-
+// Custom cell for gif image
 const GifCell = ({ dataItem }) => {
   return (
     <GridGifImage>
@@ -45,7 +40,7 @@ GifCell.propTypes = {
     image_small: PropTypes.string,
   }),
 };
-
+// Custom cell for user info
 const UserCell = ({ dataItem }) => {
   return (
     <GridUserTheme>
@@ -62,7 +57,7 @@ UserCell.propTypes = {
     user_title: PropTypes.string,
   }),
 };
-
+// Custom cell for verified row
 const VerifiedCell = ({ dataItem }) => {
   if (dataItem.user_verified)
     return (
@@ -87,11 +82,11 @@ VerifiedCell.propTypes = {
   }),
 };
 
-const initialFilter: CompositeFilterDescriptor = {
+const initial_filter: CompositeFilterDescriptor = {
   logic: "and",
   filters: [],
 };
-const initialDataState: PageState = { skip: 0, take: 10 };
+const initital_page_data = { skip: 0, take: 10 };
 
 const initialSort: Array<SortDescriptor> = [
   { field: "import_date", dir: "desc" },
@@ -101,12 +96,12 @@ function GifGrid() {
   const [gif_list, setGifList] = useState<Gif[]>([]);
 
   const [filter, setFilter] =
-    useState<CompositeFilterDescriptor>(initialFilter);
+    useState<CompositeFilterDescriptor>(initial_filter);
 
-  const [page, setPage] = React.useState<PageState>(initialDataState);
+  const [page, setPage] = React.useState(initital_page_data);
 
   const [sort, setSort] = React.useState(initialSort);
-
+  //Handles the page change event in the Kendo UI Grid.
   const pageChange = (event: GridPageChangeEvent) => {
     const take = event.page.take;
     setPage({
@@ -114,7 +109,7 @@ function GifGrid() {
       take,
     });
   };
-
+  // get Gif list from api when page loads
   useEffect(() => {
     getTrendingGifs().then((data: Gif[]) => setGifList(data));
   }, []);

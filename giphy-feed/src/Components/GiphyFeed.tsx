@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import { Feed, FeedBody, FeedHeader } from "./GiphyFeedStyle";
 import GifGrid from "./GifGrid";
-
+// Main page for holding the Grid
 function GiphyFeed() {
   return (
     <>

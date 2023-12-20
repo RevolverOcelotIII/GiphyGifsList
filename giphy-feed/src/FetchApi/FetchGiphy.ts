@@ -1,8 +1,11 @@
 import { Gif } from "../models/Gif";
 
+//Request for Giphy API and JSON formatting for Gif Model (Some Gifs don't have user info)
 async function getTrendingGifs() {
   const response = await fetch(
-    "https://api.giphy.com/v1/gifs/trending/?api_key=azgOZ6mjQdbuctMhtA0U252o181UV9s1&limit=100"
+    "https://api.giphy.com/v1/gifs/trending/?api_key=" +
+      process.env.REACT_APP_GIPHY_API_KEY +
+      "&limit=100"
   );
   const gif_list: Gif[] = [];
   for (const gif_json of (await response.json()).data) {
@@ -19,7 +22,7 @@ async function getTrendingGifs() {
           gif_json.user.description === ""
             ? "-"
             : (gif_json.user.description as string).substring(0, 80) + "...",
-        username: gif_json.user.username,
+        username: gif_json.username,
         user_verified: gif_json.user.is_verified,
         image_small: gif_json.images.fixed_height.webp,
         image_large: gif_json.images.fixed_height_small.webp,
