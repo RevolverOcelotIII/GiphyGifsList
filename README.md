@@ -37,7 +37,7 @@ npx kendo-ui-license activate
 7. Create a .env file in the project's root folder with the following line.
 
 ```js
-REACT_APP_GIPHY_API_KEY=["YOUR-GIPHY-API-KEY"]
+REACT_APP_GIPHY_API_KEY="YOUR-GIPHY-API-KEY"
 ```
 Paste the API key on the correct location.  
 
@@ -51,7 +51,7 @@ The server will start in http://localhost:3000/.
 
 The webpage's main feature its the list containing the more trending Giphy's Gifs, the list is aways up to date, and there you can see informations like the Gif's title and upload date, as well as some user info.  
 The list is completely dynamic, and can be sorted and filtered, the filter in particular is pretty strong and can be used as a search tool, for example, if you were after "NBA" related gifs:
-![Alt text](https://freeimage.host/i/JAcCwSp)
+![NBA Print](https://iili.io/JAcCwSp.png)
 The main purpouse of the project it's to show how React and Kendo UI frameworks can be used in smart ways to produce interesting results. The main Kendo UI component being used is the Data Grid.
 
 ## Testing
