@@ -9,7 +9,7 @@ Be sure to have [Node.js](https://nodejs.org/) installed in your machine before 
 1. Clone the project's repository:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-projeto.git
+git clone [https://github.com/seu-usuario/seu-projeto.git](https://github.com/RevolverOcelotIII/GiphyGifsList.git)
 ```
 2. Enter the project's root folder:
 ```bash
